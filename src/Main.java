@@ -1,5 +1,6 @@
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Point;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -19,13 +20,12 @@ class Canvas extends JPanel {
     public void paint(Graphics g) {
 	    g.setColor(java.awt.Color.BLACK);
 	    g.drawRect(10, 10, 700, 700);
-            for(int i = 10;i<700;i+=35){
-                for(int j = 10;j<700;j+=35){
-                    g.drawRect(i,j,35,35);
-                }
-            }
+        Grid grid = new Grid();
+        Point mousePos = getMousePosition();
+        grid.paint(g, mousePos);
+      }
     }
-}
+
 
     private Main() {
       this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
