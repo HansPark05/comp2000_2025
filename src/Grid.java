@@ -1,12 +1,20 @@
 import java.awt.Graphics;
-import java.awt.Point;
 
 public class Grid {
-    void paint(Graphics g, Point mousePos ){
-        for(int i=0;i<700;i+=35){
-            for(int j=0;j<700;j+=35){
-                Cell cell = new Cell();
-                cell.paint(g,10+i,10+j, mousePos);
+    Cell[][] cells = new Cell[20][20];
+
+    public Grid(){
+        for(int i=0;i<cells.length;i++){
+            for(int j=0;j<cells[i].length;j++){
+                cells[i][j] = new Cell(10+35*i,10+35*j);
+            }
+        }
+    }
+
+    public void paint(Graphics g){
+        for(int i=0;i<cells.length;i++){
+            for(int j=0;j<cells[i].length;j++){
+                cells[i][j].paint(g);
             }
         }
     }
