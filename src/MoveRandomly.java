@@ -6,6 +6,7 @@ public class MoveRandomly implements MoveStrategy {
   public Cell chooseNextLoc(List<Cell> possibleLocs, Actor currActor, List<Actor> otherActors) {
     int i = (new Random()).nextInt(possibleLocs.size());
     return possibleLocs.get(i);
+    //lamda expression version
   }
 
   public String toString() {
